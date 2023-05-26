@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Three In One</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+
+    <string name="calculator">Calculator</string>
+    <string name="unit_converter">Unit Converter</string>
+    <string name="timer">Timer</string>
+
+    <string name="basic_calculator">Basic Calculator</string>
+    <string name="scientific_calculator">Scientific Calculator</string>
+
+    <string name="enter_number">Enter a number first</string>
+    <string name="invalid_input">Invalid input</string>
+
+    <string name="equals_to">equals to</string>
+    <string name="select_a_unit">Select a unit</string>
+
+    <string name="api_error">Service error, sorry for the inconvenience</string>
+
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
+    <string name="seconds">Seconds</string>
+
+    <string name="angle">Angle</string>
+    <string name="area">Area</string>
+    <string name="currency">Currency</string>
+    <string name="data">Data</string>
+    <string name="energy">Energy</string>
+    <string name="force">Force</string>
+    <string name="length">Length</string>
+    <string name="power">Power</string>
+    <string name="pressure">Pressure</string>
+    <string name="speed">Speed</string>
+    <string name="temperature">Temperature</string>
+    <string name="time">Time</string>
+    <string name="volume">Volume</string>
+    <string name="weight">Weight</string>
+
+
+</resources>
