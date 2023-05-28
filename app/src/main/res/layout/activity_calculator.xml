@@ -14,6 +14,10 @@
             android:id="@+id/tabLayout"
             style="@style/tabs" />
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabMode"
+            style="@style/tabs" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

@@ -9,21 +9,36 @@
     <ImageButton
         android:id="@+id/btCalculator"
         style="@style/mainMenuIcons"
-        app:srcCompat="@drawable/ic_outline_calculate_108"
         app:layout_constraintBottom_toTopOf="@+id/btConverter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_outline_calculate_108" />
 
     <ImageButton
         android:id="@+id/btConverter"
         style="@style/mainMenuIcons"
+        android:layout_width="142dp"
+        android:layout_height="137dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btCalculator"
-        app:srcCompat="@drawable/ic_outline_repeat_108" />
+        app:layout_constraintTop_toBottomOf="@+id/btConverter"
+        app:srcCompat="@drawable/ic_outline_timer_108"
+        tools:ignore="DuplicateIds,NotSibling" />
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/btConverter"-->
+<!--        style="@style/mainMenuIcons"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btCalculator"-->
+<!--        app:srcCompat="@drawable/ic_outline_repeat_108" />-->
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

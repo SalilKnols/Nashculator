@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CalculatorActivity::class.java))
         }
 
-//        binding.btConverter.setOnClickListener {
-//            startActivity(Intent(this, UnitConverterActivity::class.java))
-//        }
+        binding.btConverter.setOnClickListener {
+            startActivity(Intent(this, GeoStatsActivity::class.java))
+        }
 
 //        binding.btTimer.setOnClickListener {
 //            startActivity(Intent(this, TimerActivity::class.java))

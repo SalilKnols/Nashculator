@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nashculator">
         <activity android:name=".activity.CalculatorActivity" />
+        <activity android:name=".activity.GeoStatsActivity" />
         <activity android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>

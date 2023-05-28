@@ -7,6 +7,10 @@
     <string name="unit_converter">Unit Converter</string>
     <string name="timer">Timer</string>
 
+    <string name="Geometry_Statics">geoStats</string>
+    <string name="geometry">Geometry</string>
+    <string name="statical">Statical</string>
+
     <string name="basic_calculator">Basic Calculator</string>
     <string name="scientific_calculator">Scientific Calculator</string>
 
