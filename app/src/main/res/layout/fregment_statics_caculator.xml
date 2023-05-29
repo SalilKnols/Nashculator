@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Statistics Calculator"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Input Section -->
+        <TextView
+            android:id="@+id/tvGeoInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Input Section"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Include appropriate fields for input values (e.g., EditText or NumberPicker) -->
+        <EditText
+            android:id="@+id/etInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter numbers (comma-separated)" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Conversion Options -->
+        <TextView
+            android:id="@+id/tvStaticOutput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conversion Options"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Include appropriate fields for conversion options (e.g., CheckBox or Spinner) -->
+        <Spinner
+            android:id="@+id/spinnerOperations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Output Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Output "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Include appropriate fields to display the converted results -->
+        <TextView
+            android:id="@+id/tvOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Calculate" />
+
+</LinearLayout>

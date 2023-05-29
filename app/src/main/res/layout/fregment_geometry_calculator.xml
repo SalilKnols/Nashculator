@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Geometry Calculator"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Input Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Input Section"
+            android:id="@+id/tvGeoInput"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <!-- Input Type -->
+        <Spinner
+            android:id="@+id/spinnerGeometryType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/geometry_types" />
+
+        <!-- Input Parameters -->
+        <!-- Include appropriate fields for geometry parameters (e.g., EditText or NumberPicker) -->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Conversion Options -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conversion Options"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Include appropriate fields for conversion options (e.g., CheckBox or Spinner) -->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Output Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Output "
+            android:id="@+id/tvGeoOutput"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="Enter the value in meter"
+            android:inputType="numberDecimal"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Include appropriate fields to display the converted results -->
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Calculate" />
+
+
+
+</LinearLayout>
