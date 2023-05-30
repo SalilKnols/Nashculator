@@ -16,22 +16,34 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
-
         <!-- Input Section -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Input Section"
-            android:id="@+id/tvGeoInput"
-            android:textSize="35sp"
-            android:textStyle="bold" />
-
-        <!-- Input Type -->
-        <Spinner
-            android:id="@+id/spinnerGeometryType"
+            android:id="@+id/etInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/geometry_types" />
+            android:text="Select Geometry choice from dropdown"
+            android:textSize="19dp"
+            android:textStyle="bold" />
+
+        <!-- Include appropriate fields for input values (e.g., EditText or NumberPicker) -->
+
+        <Spinner
+            android:id="@+id/spinnerOperation2"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20dp" />
+        <!-- Input Type -->
+
+        <EditText
+            android:id="@+id/etGeoInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter radius/side (comma-separated)" />
 
         <!-- Input Parameters -->
         <!-- Include appropriate fields for geometry parameters (e.g., EditText or NumberPicker) -->
@@ -48,9 +60,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Conversion Options"
-            android:textSize="18sp"
+            android:text="Here is Output:"
+            android:textSize="28dp"
             android:textStyle="bold" />
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_calculate_area"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:text="Area" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_calculate_perimeter"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:text="Perimeter" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_calculate_volume"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="right"-->
+<!--            android:text="Volume" />-->
 
         <!-- Include appropriate fields for conversion options (e.g., CheckBox or Spinner) -->
 
@@ -64,26 +97,46 @@
 
         <!-- Output Section -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Output "
             android:id="@+id/tvGeoOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="12dp"
-            android:ems="10"
-            android:hint="Enter the value in meter"
-            android:inputType="numberDecimal"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_gravity="center_vertical"
+            />
+        <!-- Input Parameters -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etRadius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+
+
+            <EditText
+                android:id="@+id/etSide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
 
         <!-- Include appropriate fields to display the converted results -->
     </LinearLayout>
+
 
     <Button
         android:id="@+id/btnCalculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textSize="28dp"
         android:text="Calculate" />
 
 
