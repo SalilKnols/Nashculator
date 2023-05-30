@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.borabor.threeinone"
+        applicationId "com.knoldus.Nashculator"
         minSdkVersion 24
         targetSdkVersion 33
         versionCode 1
@@ -27,6 +27,15 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        applicationVariants.all{
+            variant ->
+                variant.outputs.each{
+                    output->
+                        def name = "Nashculator.apk"
+
+                        output.outputFileName = name
+                }
         }
     }
     compileOptions {
