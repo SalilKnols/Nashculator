@@ -64,27 +64,6 @@
             android:textSize="28dp"
             android:textStyle="bold" />
 
-<!--        <Button-->
-<!--            android:id="@+id/btn_calculate_area"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="left"-->
-<!--            android:text="Area" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_calculate_perimeter"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:text="Perimeter" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btn_calculate_volume"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="right"-->
-<!--            android:text="Volume" />-->
-
         <!-- Include appropriate fields for conversion options (e.g., CheckBox or Spinner) -->
 
     </LinearLayout>

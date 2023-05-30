@@ -65,9 +65,15 @@ class GeometryFragment : Fragment() {
                     9 -> calculateCone(values)
                     10 -> calculateParallelogram(values)
                 }
+                binding!!.etGeoInput.text.clear() // Clear the input field
+
             } else {
                 binding!!.tvGeoOutput.text = "No valid values entered."
             }
+            // Clear the output after a delay
+            binding!!.tvGeoOutput.postDelayed({
+                binding!!.tvGeoOutput.text = ""
+            }, 8000) // Adjust the delay time (in milliseconds) as needed
         }
     }
     /**
