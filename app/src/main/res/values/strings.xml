@@ -630,10 +630,10 @@
     <string name="metric_ton">Metric ton (t)</string>
     <string name="long_ton">Long ton (lt)</string>
     <string name="short_ton">Short ton (st)</string>
-    <string name="Geometry_Statics" />
-    <string name="geometry" />
-    <string name="statical" />
-    <string name="Nashculator" />
+    <string name="Geometry_Statics" translatable="false" />
+    <string name="geometry" translatable="false" />
+    <string name="statical" translatable="false" />
+    <string name="Nashculator" translatable="false" />
     <string name="nashculator">Nashculator</string>
 
     <string-array name="weight">

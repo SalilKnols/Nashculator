@@ -16,13 +16,26 @@ import com.knoldus.Nashculator.util.PrefUtil
 import kotlinx.android.synthetic.main.fragment_scientific_calculator.*
 import kotlin.math.sqrt
 
-
+/**
+ * A fragment representing the Scientific Calculator screen.
+ */
 class ScientificCalculatorFragment : Fragment() {
 
+    /**
+     * Indicates whether the Scientific Calculator fragment is added.
+     */
     companion object {
         var addedSC = false
     }
 
+    /**
+     * Called when the fragment is created.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate any views in the fragment
+     * @param container          The parent view that the fragment's UI should be attached to
+     * @param savedInstanceState The previously saved state of the fragment
+     * @return The View for the fragment's UI, or null
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,7 +43,12 @@ class ScientificCalculatorFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_scientific_calculator, container, false)
     }
-
+    /**
+     * Called when the fragment's view is created.
+     *
+     * @param view               The View returned by onCreateView(LayoutInflater, ViewGroup, Bundle)
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -56,7 +74,9 @@ class ScientificCalculatorFragment : Fragment() {
         addOperatorValueToText(requireContext(), btSubtractionSC, tvPrimarySC, "-", 1)
         addOperatorValueToText(requireContext(), btMultiplicationSC, tvPrimarySC, "*", 1)
         addOperatorValueToText(requireContext(), btDivisionSC, tvPrimarySC, "/", 1)
-
+        /**
+         * ...add similar click listeners for other buttons
+         */
         btDotSC.setOnClickListener {
             vibratePhone(requireContext())
             if (!tvPrimarySC.text.contains(".")) tvPrimarySC.text = tvPrimarySC.text.toString() + "."
@@ -173,13 +193,18 @@ class ScientificCalculatorFragment : Fragment() {
         }
     }
 
+    /**
+     * Called when the fragment is about to become visible.
+     */
     override fun onStart() {
         super.onStart()
 
         tvPrimarySC.text = PrefUtil.getPrimaryTextSC(requireContext())
         tvSecondarySC.text = PrefUtil.getSecondaryTextSC(requireContext())
     }
-
+    /**
+    * Called when the fragment is no longer started.
+    */
     override fun onStop() {
         super.onStop()
 

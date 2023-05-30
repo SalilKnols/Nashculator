@@ -16,9 +16,14 @@ import com.knoldus.Nashculator.util.PrefUtil
 import kotlinx.android.synthetic.main.fragment_stopwatch.*
 import java.util.concurrent.TimeUnit
 
-
+/**
+ * Fragment for stopwatch functionality.
+ */
 class StopwatchFragment : Fragment() {
 
+    /**
+     * Enumeration representing the state of the timer.
+     */
     enum class TimerState {
         Stopped, Paused, Running
     }
@@ -46,6 +51,9 @@ class StopwatchFragment : Fragment() {
 
     private var hms = ""
 
+    /**
+     * Inflates the layout for this fragment.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,6 +62,9 @@ class StopwatchFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_stopwatch, container, false)
     }
 
+    /**
+     * Initializes the view and sets click listeners for the buttons.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -139,6 +150,9 @@ class StopwatchFragment : Fragment() {
         }
     }
 
+    /**
+     * Called when the fragment becomes visible to the user.
+     */
     override fun onStart() {
         super.onStart()
 
@@ -170,6 +184,10 @@ class StopwatchFragment : Fragment() {
         }
     }
 
+    /**
+     * Called when the fragment is no longer visible to the user.
+     * Saves the state of the stopwatch and lap list using shared preferences.
+     */
     override fun onStop() {
         super.onStop()
 
@@ -182,6 +200,9 @@ class StopwatchFragment : Fragment() {
         PrefUtil.setLapList(requireContext(), lapList)
     }
 
+    /**
+     * Updates the stopwatch text view with the current time.
+     */
     private fun updateStopwatchText() {
         val millis = (updateTime / 10) % 100
 
@@ -205,6 +226,13 @@ class StopwatchFragment : Fragment() {
         if (tvStopwatch != null) tvStopwatch.text = hms
     }
 
+    /**
+     * Updates the laps text view with lap data.
+     *
+     * @param map              The map containing lap data
+     * @param isFragmentStopped Indicates if the fragment is stopped
+     * @param index            The index of the lap
+     */
     private fun updateLapsText(map: HashMap<Int, String>?, isFragmentStopped: Boolean, index: Int) {
         val inflater = requireActivity().getSystemService(AppCompatActivity.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val inflatedView = inflater.inflate(R.layout.scroll_row, null)
@@ -229,6 +257,9 @@ class StopwatchFragment : Fragment() {
         fabClear.isEnabled = true
     }
 
+    /**
+     * Updates the visibility and enabled state of the buttons based on the timer state.
+     */
     private fun updateButtons() {
         when (timerState) {
             TimerState.Stopped -> {
