@@ -1,10 +1,12 @@
 package com.knoldus.Nashculator.activity
 
+import android.app.DownloadManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -21,8 +23,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
 import org.json.JSONObject
 import java.net.URL
+import okhttp3.Request
+
+
 
 class UnitConverterActivity : AppCompatActivity() {
 
@@ -199,7 +205,7 @@ class UnitConverterActivity : AppCompatActivity() {
     private var fromCoefficient = 0.0
     private var toCoefficient = 0.0
 
-    private val apiKey = "f9d334b1e6287a2c6258"
+    private val apiKey = "3b2ca6b021mshb90fa31e6157d4fp1c08ffjsn0a42c2585140"
     private var fromCurrency = ""
     private var toCurrency = ""
     private var conversionRate = 0.0
@@ -469,26 +475,34 @@ class UnitConverterActivity : AppCompatActivity() {
                     tvOutput.text = CalculationUtil.trimResult(resultStr)
                 }
                 Unit.Currency -> {
-                    val api = "https://free.currconv.com/api/v7/convert?q=${fromCurrency}_$toCurrency&compact=ultra&apiKey=$apiKey"
+                      val api = "https://currency-converter-by-api-ninjas.p.rapidapi.com/v1/convertcurrency?have=${fromCurrency}&want=${toCurrency}&amount=${inputValue}&rapidapi-key=${apiKey}"
+//                    val api = "https://free.currconv.com/api/v7/convert?q=${fromCurrency}_$toCurrency&compact=ultra&apiKey=$apiKey"
 
                     GlobalScope.launch(Dispatchers.IO) {
                         try {
                             val apiResult = URL(api).readText()
                             val jsonObject = JSONObject(apiResult)
-                            conversionRate = jsonObject.getString("${fromCurrency}_$toCurrency").toDouble()
+                            Log.d("API Response", apiResult)
+                            val conversionRate = jsonObject.getDouble("new_amount")
+                            Log.d("inputValue", inputValue.toString())
+                            Log.d("ConversionRate",conversionRate.toString())
+
 
                             withContext(Dispatchers.Main) {
-                                result = inputValue * conversionRate
+                                result =  conversionRate
+                                Log.d("result", result.toString())
                                 resultStr = result.toFloat().toString()
                                 tvOutput.text = CalculationUtil.trimResult(resultStr)
                             }
                         } catch (e: Exception) {
-                            Handler(Looper.getMainLooper()).post {
+                            runOnUiThread {
                                 Toast.makeText(this@UnitConverterActivity, getString(R.string.api_error), Toast.LENGTH_SHORT).show()
                             }
+
+                        }
                         }
                     }
-                }
+
                 Unit.Temperature -> {
                     when (fromCoefficient) {
                         temperatureValues[0] -> {

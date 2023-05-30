@@ -26,8 +26,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, GeoStatsActivity::class.java)
             startActivity(intent)
         }
-
-
         btCalculator.setOnClickListener {
             startActivity(Intent(this, CalculatorActivity::class.java))
         }
