@@ -10,25 +10,33 @@ import com.knoldus.Nashculator.fragment.CountdownTimerFragment
 import com.knoldus.Nashculator.fragment.CounterFragment
 import com.knoldus.Nashculator.fragment.StopwatchFragment
 import kotlinx.android.synthetic.main.activity_calculator.*
-
+/**
+ * The activity for managing various timers.
+ */
 class TimerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
+        /**
+         *    Customize the action bar
+         */
         val actionBar = supportActionBar
         actionBar!!.title = getString(R.string.timer)
         actionBar.setDisplayHomeAsUpEnabled(true)
         actionBar.setBackgroundDrawable(ColorDrawable(Color.BLACK))
 
-        setUpTabs()
+        setUpTabs()          // Set up tabs for stopwatch, countdown timer, and counter fragments
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
-
+    /**
+     * Set up the tabs for stopwatch, countdown timer, and counter fragments using a ViewPager.
+     */
     private fun setUpTabs() {
         val adapter = ViewPagerAdapter(supportFragmentManager)
         adapter.addFragment(StopwatchFragment(), getString(R.string.stopwatch))

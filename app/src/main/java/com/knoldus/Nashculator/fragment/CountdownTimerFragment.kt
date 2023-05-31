@@ -15,9 +15,18 @@ import com.knoldus.Nashculator.util.PrefUtil
 import kotlinx.android.synthetic.main.fragment_countdown_timer.*
 import java.util.concurrent.TimeUnit
 
-
+/**
+ * The CountdownTimerFragment class represents a fragment that provides countdown timer functionality.
+ * It allows users to set the timer duration using seek bars for hours, minutes, and seconds.
+ * Users can start, pause, and stop the timer, and the remaining time is displayed in the format HH:MM:SS.
+ * The timer state is saved and restored using shared preferences.
+ */
 class CountdownTimerFragment : Fragment() {
 
+    /**
+     * The TimerState enum represents the state of the countdown timer.
+     * It can be Stopped, Paused, or Running.
+     */
     enum class TimerState {
         Stopped, Paused, Running
     }
@@ -29,9 +38,18 @@ class CountdownTimerFragment : Fragment() {
     private var startTime = 0L
     private var endTime = 0L
 
-
+    /**
+     *  Took progress list as HashMap of String, Integer
+     */
     private var sbProgressList = hashMapOf<String, Int>()
-
+    /**
+     * Creates the view for the CountdownTimerFragment.
+     *
+     * @param inflater           The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container          The parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState The saved instance state of the fragment.
+     * @return The inflated view for the fragment.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +58,12 @@ class CountdownTimerFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_countdown_timer, container, false)
     }
 
+    /**
+     * Called when the view is created.
+     *
+     * @param view               The created view for the fragment.
+     * @param savedInstanceState The saved instance state of the fragment.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -111,7 +135,9 @@ class CountdownTimerFragment : Fragment() {
             }
         })
     }
-
+    /**
+     * Called when the fragment is starting.
+     */
     override fun onStart() {
         super.onStart()
 
@@ -141,7 +167,9 @@ class CountdownTimerFragment : Fragment() {
 
         updateCountDownText()
     }
-
+    /**
+     * Called when the fragment is stopping.
+     */
     override fun onStop() {
         super.onStop()
 
@@ -153,7 +181,9 @@ class CountdownTimerFragment : Fragment() {
 
         timer?.cancel()
     }
-
+    /**
+     * Starts the countdown timer.
+     */
     private fun startTimer() {
         endTime = System.currentTimeMillis() + remainingTime
         timer = object : CountDownTimer(remainingTime, 1000) {
@@ -171,13 +201,18 @@ class CountdownTimerFragment : Fragment() {
         timerState = TimerState.Running
         updateButtons()
     }
-
+    /**
+     * Pauses the countdown timer.
+     */
     private fun pauseTimer() {
         timer?.cancel()
         timerState = TimerState.Paused
         updateButtons()
     }
 
+    /**
+     * Stops the countdown timer.
+     */
     private fun stopTimer() {
         timer?.cancel()
         remainingTime = startTime - 1000
@@ -186,7 +221,9 @@ class CountdownTimerFragment : Fragment() {
         updateCountDownText()
         updateButtons()
     }
-
+    /**
+     * Updates the countdown timer text view.
+     */
     fun updateCountDownText() {
         val hms = String.format(
             "%02d:%02d:%02d",
@@ -197,7 +234,9 @@ class CountdownTimerFragment : Fragment() {
 
         tvCountdownTimer.text = hms
     }
-
+    /**
+     * Updates the visibility and state of the buttons based on the timer state.
+     */
     private fun updateButtons() {
         when (timerState) {
             TimerState.Stopped -> {
