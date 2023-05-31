@@ -43,7 +43,7 @@ class GeometryFragment : Fragment() {
 
         // Populate the conversion options dropdown
         val options = arrayOf("Circle", "Rectangle", "Triangle","Square","Trapezoid",
-            "Ellipse","cube","Cuboid","Cylinder","Cone","Parallelogram")
+            "Ellipse","cube","Cuboid","Cylinder","Cone","Sphere","Parallelogram")
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding!!.spinnerOperation2.adapter = adapter
@@ -64,10 +64,17 @@ class GeometryFragment : Fragment() {
                     8 -> calculateCylinder(values)
                     9 -> calculateCone(values)
                     10 -> calculateParallelogram(values)
+                    11 -> calculateSphere(values)
                 }
+                binding!!.etGeoInput.text.clear() // Clear the input field
+
             } else {
                 binding!!.tvGeoOutput.text = "No valid values entered."
             }
+            // Clear the output after a delay
+            binding!!.tvGeoOutput.postDelayed({
+                binding!!.tvGeoOutput.text = ""
+            }, 10000) // Adjust the delay time (in milliseconds) as needed
         }
     }
     /**
@@ -95,8 +102,7 @@ class GeometryFragment : Fragment() {
             val radius = values[0]
             val area = (Math.PI * radius * radius).toFloat()
             val perimeter = (2 * Math.PI * radius).toFloat()
-            val volume = (4/3) * (Math.PI * radius * radius * radius).toFloat()
-            binding!!.tvGeoOutput.text = "Area: $area\nPerimeter: $perimeter\nVolume: $volume"
+            binding!!.tvGeoOutput.text = "Area: $area\nPerimeter: $perimeter"
         } else {
             binding!!.tvGeoOutput.text = "Invalid input for area calculation."
         }
@@ -112,8 +118,7 @@ class GeometryFragment : Fragment() {
             val width = values[1]
             val area = (length * width).toFloat()
             val perimeter = 2 * (length + width)
-            val volume = (length * width * width).toFloat()
-            binding!!.tvGeoOutput.text = "Area: $area\nPerimeter: $perimeter\nVolume: $volume"
+            binding!!.tvGeoOutput.text = "Area: $area\nPerimeter: $perimeter"
         } else {
             binding!!.tvGeoOutput.text = "Invalid input for perimeter calculation."
         }
@@ -154,9 +159,8 @@ class GeometryFragment : Fragment() {
                 val length = values[0]
                 val area = length * length
                 val perimeter = 4 * length
-                val volume = length * length * length
 
-                binding!!.tvGeoOutput.text = "Area: $area\nPerimeter: $perimeter\nVolume: $volume"
+                binding!!.tvGeoOutput.text = "Area: $area\nPerimeter: $perimeter"
             } else {
                 binding!!.tvGeoOutput.text = "Invalid input for volume calculation."
             }
@@ -217,6 +221,12 @@ class GeometryFragment : Fragment() {
             binding!!.tvGeoOutput.text = "Invalid input for volume calculation."
         }
     }
+
+    /**
+     * Calculates the surface area and volume of a cuboid.
+     *
+     * @param values The array of values containing the length, width & height of the cuboids side.
+     */
     private fun calculateCuboid(values: FloatArray) {
         if (values.size == 3) {
             val length = values[0]
@@ -287,6 +297,17 @@ class GeometryFragment : Fragment() {
             val volume = area * height
 
             binding!!.tvGeoOutput.text = "Area: $area\nPerimeter: $perimeter\nVolume: $volume"
+        } else {
+            binding!!.tvGeoOutput.text = "Invalid input for volume calculation."
+        }
+    }
+
+    private fun calculateSphere(values: FloatArray) {
+        if (values.size == 1) {
+            val radius = values[0]
+            val volume = (4/3) * Math.PI * Math.pow(radius.toDouble(), 3.0)
+            val surfaceArea = 4 * Math.PI * Math.pow(radius.toDouble(), 2.0)
+            binding!!.tvGeoOutput.text = "Volume: $volume\nSurface Area: $surfaceArea"
         } else {
             binding!!.tvGeoOutput.text = "Invalid input for volume calculation."
         }
