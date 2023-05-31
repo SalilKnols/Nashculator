@@ -267,7 +267,7 @@ class UnitConverterActivity : AppCompatActivity() {
             fabForward.visibility = View.INVISIBLE
             fabForward.isEnabled = false
 
-            fabBackward.visibility = View.VISIBLE
+            fabBackward.visibility = View.INVISIBLE
             fabBackward.isEnabled = true
 
             fromCoefficient = toCoefficient.also { toCoefficient = fromCoefficient }
@@ -279,7 +279,7 @@ class UnitConverterActivity : AppCompatActivity() {
             fabBackward.visibility = View.INVISIBLE
             fabBackward.isEnabled = false
 
-            fabForward.visibility = View.VISIBLE
+            fabForward.visibility = View.INVISIBLE
             fabForward.isEnabled = true
 
             fromCoefficient = toCoefficient.also { toCoefficient = fromCoefficient }
