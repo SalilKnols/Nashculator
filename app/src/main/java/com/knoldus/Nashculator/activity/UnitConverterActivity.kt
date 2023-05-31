@@ -1,11 +1,8 @@
 package com.knoldus.Nashculator.activity
 
-import android.app.DownloadManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -23,19 +20,26 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
 import org.json.JSONObject
 import java.net.URL
-import okhttp3.Request
 
-
-
+/**
+ * The UnitConverterActivity class is responsible for handling the unit conversion functionality in the app.
+ * It provides conversion capabilities for various types of units, such as angle, area, currency, temperature, etc.
+ * The class extends the AppCompatActivity class and implements various methods
+ * ...to handle user interactions and perform conversions.
+ */
 class UnitConverterActivity : AppCompatActivity() {
 
+    /**
+     * Enum class representing the unit types available for conversion.
+     * It includes the units: Other, Currency, Temperature.
+     */
     enum class Unit {
         Other, Currency, Temperature
     }
 
+    // Constants for conversion values
     private var unitId = Unit.Other
 
     private val angleValues = doubleArrayOf(
