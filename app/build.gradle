@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.knoldus.Nashculator"
-        minSdkVersion 24
+        minSdkVersion 22
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
